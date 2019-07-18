@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>東山咖啡</title>
+
+    <!-- FAVIOCN -->
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+
+    <!-- 網站META -->
+    <!-- 說明最好要設，讓Google搜尋能抓到網站說明 -->
+    <meta name="keywords" content="東山咖啡,咖啡,東山">
+    <meta name="description" content="東山咖啡介紹網">
+    <meta name="author" content="泰山網頁設計班">
+
+    <!-- FACEBOOK META -->
+    <meta property="og:title" content="東山咖啡">
+    <meta property="og:image" content="./img/Geography_03.jpg">
+    <meta property="og:description" content="東山咖啡介紹網">
+    <meta property="og:site_name" content="東山咖啡">
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/coffee.css">
+    <link rel="stylesheet" href="./css/animate.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    
+    <div class="container-fluid bg-primary" id="footer">
+        <div class="row justify-content-center">
+            <div class="col-12 text-white text-center">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fab fa-facebook-f"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fab fa-instagram"></i></a>
+                    </li>
+                </ul>
+                &copy;<script>let d = new Date; document.write(d.getFullYear());</script>泰山網頁設計班
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/wow.min.js"></script>
+    <script src="./js/jquery.dataTables.min.js"></script>
+    <script src="./js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).on("readystatechange", function(){
+            if(document.readyState == "complete"){
+                $("#loading").fadeOut(2000, function(){
+                    $("#content").fadeIn(1000);
+                    $("#footer").fadeIn(1000);
+
+                    new WOW().init();
+                });
+            }
+        })
+    </script>
+      <script>
+            $.ajax({
+              url:"https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=17",
+              type:"GET",
+              dataTppe:"json",
+              success:function(r){
+                //console.log(r);
+                for(let i=0;i<r.length;i++){
+                  console.log(r[i].title);
+                  $("#showtable").append(/*html*/`
+                  <tr>
+                  <td>${r[i].title} </td>
+                  <td>${r[i].showInfo[0].time} </td>
+                  <td>${r[i].showInfo[0].locationName} </td>
+                  </tr>
+        
+                  `);
+                }
+              }
+        
+            })
+
+            $("#site").DataTable({
+            "language": {
+                "url": "./datatables-chinese-traditional.json"
+            },
+            "columnDefs": [
+                {
+                    "targets": 3,
+                    "orderable": false,
+                    "searchable": false 
+                }
+            ]
+        });
+
+          </script>
+          
+</body>
+
+</html>

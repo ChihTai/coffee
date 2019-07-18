@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>東山咖啡 | 景點介紹</title>
+
+    <!-- FAVIOCN -->
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+
+    <!-- 網站META -->
+    <!-- 說明最好要設，讓Google搜尋能抓到網站說明 -->
+    <meta name="keywords" content="東山咖啡,咖啡,東山">
+    <meta name="description" content="東山咖啡景點介紹">
+    <meta name="author" content="泰山網頁設計班">
+
+    <!-- FACEBOOK META -->
+    <meta property="og:title" content="東山咖啡 | 景點介紹">
+    <meta property="og:image" content="./img/Geography_03.jpg">
+    <meta property="og:description" content="東山咖啡景點介紹">
+    <meta property="og:site_name" content="東山咖啡">
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/coffee.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="./packages/core//main.min.css">
+    <link rel="stylesheet" href="./packages/daygrid/main.min.css">
+    <link rel="stylesheet" href="./packages/bootstrap/main.min.css">
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-hover table-light table-rwd my-2 rounded " id="showtable">
+                <thead class="thead-dark rounded th-hide">
+                    <tr>
+                            <th>名稱</th>
+                            <th>開始時間</th>
+                            <th>地址</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+            <div class="col-12 bg-white">
+                <div id="calendar" >
+
+                </div>
+            </div>
+    </div>
+</div>
+
+
+    <div class="container-fluid bg-primary" id="footer">
+        <div class="row justify-content-center">
+            <div class="col-12 text-white text-center">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fab fa-facebook-f"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fab fa-instagram"></i></a>
+                    </li>
+                </ul>
+                &copy;<script>let d = new Date; document.write(d.getFullYear());</script>泰山網頁設計班
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="" class="w-100 modal-img">
+                    <br><br>
+                    <h6><i class="fas fa-map-marker-alt text-success"></i>&nbsp;&nbsp;地址：<span class="modal-addr"></span></h6>
+                    <h6><i class="fas fa-phone-alt text-success"></i>&nbsp;電話：<span class="modal-tel"></span></h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/wow.min.js"></script>
+    <script src="./js/jquery.dataTables.min.js"></script>
+    <script src="./js/dataTables.bootstrap4.min.js"></script>
+    <script src="./packages/core/main.min.js"></script>
+    <script src="./packages/daygrid/main.min.js"></script>
+    <script src="./packages/bootstrap/main.min.js"></script>
+    <script src="./packages/core/locales-all.min.js"></script>
+ 
+    <script>
+                $(document).on("readystatechange", function(){
+            if(document.readyState == "complete"){
+                $("#loading").fadeOut(2000, function(){
+                    $("#content").fadeIn(1000);
+                    $("#footer").fadeIn(1000);
+
+                    new WOW().init();
+                  
+
+                });
+            }
+        })
+
+/*         let calendarEl = document.getElementById("calendar");
+            let calendar = new FullCalendar.Calendar(calendarEl, {
+                plugins: ["dayGrid", "bootstrap"],
+                themeSystem: "bootstrap",
+                events:[
+                    {
+                        title: "測試",
+                        start: "2019-07-05",
+                        color: "#00",
+                        url: "https://www.kham.com.tw/application/UTK02/UTK0201_.aspx?PRODUCT_ID=N04A2CQS"
+                    }
+                ]
+            })
+ */
+
+
+            $.ajax({
+              url:"https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=17",
+              type:"GET",
+              dataTppe:"json",
+              success:function(r){
+                //console.log(r);
+                let events =[];
+                for(let i=0;i<r.length;i++){
+                    let rowdata = [r[i].title, r[i].showInfo[0].time, r[i].showInfo[0].locationName];
+                    showtable.row.add(rowdata).draw().node();
+                 // console.log(r[i].title);
+                 // $("#showtable").append(/*html*/`
+                 // <tr>
+                 // <td>${r[i].title} </td>
+                 // <td>${r[i].showInfo[0].time} </td>
+                 // <td>${r[i].showInfo[0].locationName} </td>
+                 // </tr>
+                 // `);
+                        let start = r[i].startDate.replace("/","-").replace("/","-");
+                        events.push({
+                            title:r[i].title,
+                            start:start,
+                            url:r[i].webSales
+                        })
+                }
+                        let calendarEl = document.getElementById("calendar");
+                        let calendar = new FullCalendar.Calendar(calendarEl, {
+                            locale:"zh-tw",
+                        plugins: ["dayGrid", "bootstrap"],
+                        themeSystem: "bootstrap",
+                        events:events
+/*                         events:[
+                            {
+                                title: "測試",
+                                start: "2019-07-05",
+                                color: "#00",
+                                url: "https://www.kham.com.tw/application/UTK02/UTK0201_.aspx?PRODUCT_ID=N04A2CQS"
+                            }
+                        ] */
+                    });
+                    setTimeout(function(){
+                         calendar.render();
+                    }, 2000)
+                   
+
+              }
+            })
+            let showtable = $("#showtable").DataTable({
+                "language":{
+                "url": "./datatables-chinese-traditional.json"
+                  }
+              })
+          </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div style="width:800px; height:500px">
+    <canvas id="chart"></canvas>
+  </div>
+  <script src="./Chart.min.js"></script>
+  <script src="./js/jquery-3.4.1.min.js"></script>
+  <script>
+    /* getContext("2d") ,取得canvas 的繪圖參數 */
+      //let ctx = document.getElementById("chart").getContext("2d");
+/*       let ctx = $("#chart");   //line
+      let myLineChart = new Chart(ctx,{
+          type:"line",
+          data:{
+            labels:["第一期","第二期", "第三期", "第四期", "第五期" ],
+            
+            datasets:[
+                {
+                    label:"PHP網頁班",
+                    data:[7,8,10,6,9],
+                    borderColor:"#00ffff",
+                    backgroundColor:"#f00",
+                    fill:true,
+                    borderWidth:5,
+                    lineTension:0
+                },
+            ]
+          },
+          options:{
+
+            title:{
+                text:"職訓課程乙級通過人數",
+                display:true
+            }
+
+          }
+      }) */
+
+      //bar
+/*       let ctx = $("#chart");    // bar
+      let myLineChart = new Chart(ctx,{
+          type:"bar",
+          data:{
+            labels:["第一期","第二期", "第三期", "第四期", "第五期" ],
+            
+            datasets:[
+                {
+                    label:"PHP網頁班",
+                    data:[7,8,10,6,9],
+                    borderColor:"#00ffff",
+                    backgroundColor:"#f00",
+                    fill:true,
+                    borderWidth:5,
+                   //  lineTension:0  //for line
+                },
+            ]
+          },
+          options:{
+
+            title:{
+                text:"職訓課程乙級通過人數",
+                display:true
+            }
+
+          }
+      }) */
+      let ctx = $("#chart"); 
+      let myPieChart = new Chart(ctx,{
+        type : "pie",
+        data:{
+          datasets:[{
+            data:[10,20,30,40,50],
+            backgroundColor:["#f00","#0f0","#00f","#ff0","#f0f"]
+          }],
+          labels:["第一期","第二期", "第三期", "第四期", "第五期" ]
+        },
+        options:{
+          title:{
+                text:"職訓課程乙級通過人數",
+                display:true
+            }
+        }
+      })
+
+      
+  </script>
+</body>
+</html>
