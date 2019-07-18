@@ -1,0 +1,19 @@
+{
+    "name": "東山咖啡",
+    "short_name": "東山咖啡",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#3EEEA4",
+    "icons": [
+        {
+            "src": "./img/coffee.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "./img/coffee192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}

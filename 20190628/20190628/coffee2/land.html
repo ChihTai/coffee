@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>東山咖啡 | 景點介紹</title>
+
+    <!-- FAVIOCN -->
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+
+    <!-- 網站META -->
+    <!-- 說明最好要設，讓Google搜尋能抓到網站說明 -->
+    <meta name="keywords" content="東山咖啡,咖啡,東山">
+    <meta name="description" content="東山咖啡景點介紹">
+    <meta name="author" content="泰山網頁設計班">
+
+    <!-- FACEBOOK META -->
+    <meta property="og:title" content="東山咖啡 | 景點介紹">
+    <meta property="og:image" content="./img/Geography_03.jpg">
+    <meta property="og:description" content="東山咖啡景點介紹">
+    <meta property="og:site_name" content="東山咖啡">
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/coffee.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./css/dataTables.bootstrap4.min.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./img/coffee.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                東山咖啡
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">
+                            <i class="fas fa-home"></i>  首頁
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./land.html">
+                            <i class="fas fa-tree"></i>  景點介紹
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./shop.html">
+                            <i class="fas fa-gift"></i>  商品介紹
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="page">
+        <div class="container-fluid" id="loading">
+            <div class="row h-100">
+                <div class="col-12 text-center align-self-center">
+                    <img src="./img/loading-coffee.svg" alt="" width="300" height="300">
+                    <p class="text-white">載入中...</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="content" style="margin-top: 70px; margin-bottom: 64px;">
+            <div class="row">
+                <div class="col-12 text-center text-white rubberBand wow my-2">
+                    <h1>景點介紹</h1>
+                </div>
+                <hr class="hr-white">
+                <div class="col-12">
+                    <table class="table table-hover table-light table-rwd my-2 rounded" id="site">
+                        <thead class="thead-dark rounded tr-hide">
+                            <tr>
+                                <th>名稱</th>
+                                <th>地點</th>
+                                <th>電話</th>
+                                <th>介紹</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-th="名稱">東山咖啡館</td>
+                                <td data-th="地點">你家隔壁</td>
+                                <td data-th="電話">02-12345678</td>
+                                <td data-th="介紹">
+                                    <button type="button" class="btn btn-link btn-more" data-img="dongshan-cafe_02.jpg">
+                                        <i class="fas fa-eye"></i>  詳細資料
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-th="名稱">東山咖啡農場</td>
+                                <td data-th="地點">你家後面</td>
+                                <td data-th="電話">02-887654321</td>
+                                <td data-th="介紹"><button type="button" class="btn btn-link btn-more" data-img="dongshan-cafe_08.jpg"><i class="fas fa-eye"></i>  詳細資料</button></td>
+                            </tr>
+                            <tr>
+                                <td data-th="名稱">東山咖啡</td>
+                                <td data-th="地點">你家後面</td>
+                                <td data-th="電話">02-887654321</td>
+                                <td data-th="介紹"><button type="button" class="btn btn-link btn-more" data-img="dongshan-cafe_10.jpg"><i class="fas fa-eye"></i>  詳細資料</button></td>
+                            </tr>
+                            <tr>
+                                <td data-th="名稱">東山老家咖啡</td>
+                                <td data-th="地點">台南市東山區90號</td>
+                                <td data-th="電話">06-686-1230</td>
+                                <td data-th="介紹"><button type="button" class="btn btn-link btn-more" data-img="foods_07.jpg"><i class="fas fa-eye"></i>  詳細資料</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-primary" id="footer">
+        <div class="row justify-content-center">
+            <div class="col-12 text-white text-center">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fab fa-facebook-f"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fab fa-instagram"></i></a>
+                    </li>
+                </ul>
+                &copy;<script>let d = new Date; document.write(d.getFullYear());</script>泰山網頁設計班
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="" class="w-100 modal-img">
+                    <br><br>
+                    <h6><i class="fas fa-map-marker-alt text-success"></i>&nbsp;&nbsp;地址：<span class="modal-addr"></span></h6>
+                    <h6><i class="fas fa-phone-alt text-success"></i>&nbsp;電話：<span class="modal-tel"></span></h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/wow.min.js"></script>
+    <script src="./js/jquery.dataTables.min.js"></script>
+    <script src="./js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).on("readystatechange", function(){
+            if(document.readyState == "complete"){
+                $("#loading").fadeOut(2000, function(){
+                    $("#content").fadeIn(1000);
+                    $("#footer").fadeIn(1000);
+
+                    new WOW().init();
+                });
+            }
+        })
+
+        $("#site").DataTable({
+            "language": {
+                "url": "./datatables-chinese-traditional.json"
+            },
+            "columnDefs": [
+                {
+                    "targets": 3,
+                    "orderable": false,
+                    "searchable": false 
+                }
+            ]
+        });
+
+        $(".btn-more").on("click", function(){
+            let title = $(this).parents("tr").find("td").eq(0).text();
+            $("#modal .modal-title").text(title);
+
+            let addr = $(this).parents("tr").find("td").eq(1).text();
+            $("#modal .modal-addr").text(addr);
+
+            let tel = $(this).parents("tr").find("td").eq(2).text();
+            $("#modal .modal-tel").text(tel);
+            
+            let img = $(this).attr("data-img");
+            $("#modal .modal-img").attr("src", "./img/"+img);
+
+            $("#modal").modal("show");
+        })
+    </script>
+</body>
+
+</html>
