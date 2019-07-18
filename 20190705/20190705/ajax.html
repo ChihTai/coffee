@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" id="showtable">
+        <tr>
+            <th>名稱</th>
+            <th>開始時間</th>
+            <th>地點</th>
+        </tr>
+    </table>
+    <script src="./jquery-3.4.1.min.js"></script>
+    <script>
+        $.ajax({
+            url: "https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=17",
+            type: "GET",
+            dataType: "json",
+            success: function(r){
+                for(let i=0;i<r.length;i++){
+                    console.log(r[i].title);
+                    $("#showtable").append(/*html*/`
+                        <tr>
+                            <td> ${r[i].title} </td>
+                            <td> ${r[i].showInfo[0].time} </td>
+                            <td> ${r[i].showInfo[0].locationName} </td>
+                        </tr>
+                    `);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

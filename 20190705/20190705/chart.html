@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width:800px; height:500px">
+        <canvas id="chart"></canvas>
+    </div>
+    <script src="./Chart.min.js"></script>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        /*
+            getContext()，取得canvas的繪圖參數
+        */
+        // let ctx = document.getElementById("chart").getContext("2d");
+        let ctx = $("#chart");
+        // let myLineChart = new Chart(ctx, {
+        //     type: "line",
+        //     data: {
+        //         /* 資料區間名稱*/
+        //         labels: ["第一期", "第二期", "第三期", "第四期", "第五期"],
+        //         /* 資料組 */
+        //         datasets:[
+        //             {
+        //                 /* 名稱 */
+        //                 label: "PHP網頁班",
+        //                 /* 資料 */
+        //                 data: [7, 8, 10, 6, 9],
+        //                 // 線的顏色
+        //                 borderColor: "#00ffff",
+        //                 // 填滿顏色
+        //                 backgroundColor: "#f00",
+        //                 /* 是否填滿*/
+        //                 fill: true,
+        //                 // 線的寬度
+        //                 borderWidth: 5,
+        //                 // 線的彎曲程度，0為直線
+        //                 lineTension: 0
+        //             },
+        //         ]
+        //     },
+        //     options: {
+        //         /* 圖表標題*/
+        //         title: {
+        //             text: "職訓課程乙級通過人數",
+        //             display: true
+        //         }
+        //     }
+        // });
+
+        // let myBarChart = new Chart(ctx, {
+        //     type: "bar",
+        //     data: {
+        //         /* 資料區間名稱*/
+        //         labels: ["第一期", "第二期", "第三期", "第四期", "第五期"],
+        //         /* 資料組 */
+        //         datasets:[
+        //             {
+        //                 /* 名稱 */
+        //                 label: "PHP網頁班",
+        //                 /* 資料 */
+        //                 data: [7, 8, 10, 6, 9],
+        //                 // 線的顏色
+        //                 borderColor: "#00ffff",
+        //                 // 填滿顏色
+        //                 backgroundColor: "#f00",
+        //                 /* 是否填滿*/
+        //                 fill: true,
+        //                 // 邊框的寬度
+        //                 borderWidth: 5
+        //             },
+        //         ]
+        //     },
+        //     options: {
+        //         /* 圖表標題*/
+        //         title: {
+        //             text: "職訓課程乙級通過人數",
+        //             display: true
+        //         }
+        //     }
+        // });
+
+        let myPieChart = new Chart(ctx, {
+            type: "pie",
+            data:{
+                datasets:[{
+                    data: [10, 20, 30, 40, 50],
+                    backgroundColor: ["#f00", "#0f0", "#00f", "#ff0", "#f0f"]
+                }],
+                labels: ["第一期", "第二期", "第三期", "第四期", "第五期"]
+            },
+            options: {
+                /* 圖表標題*/
+                title: {
+                    text: "職訓課程乙級通過人數",
+                    display: true
+                }
+            }
+        })
+    </script>
+</body>
+</html>

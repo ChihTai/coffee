@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>東山咖啡 | 景點介紹</title>
+
+    <!-- FAVIOCN -->
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+
+    <!-- 網站META -->
+    <!-- 說明最好要設，讓Google搜尋能抓到網站說明 -->
+    <meta name="keywords" content="東山咖啡,咖啡,東山">
+    <meta name="description" content="東山咖啡景點介紹">
+    <meta name="author" content="泰山網頁設計班">
+
+    <!-- FACEBOOK META -->
+    <meta property="og:title" content="東山咖啡 | 景點介紹">
+    <meta property="og:image" content="./img/Geography_03.jpg">
+    <meta property="og:description" content="東山咖啡景點介紹">
+    <meta property="og:site_name" content="東山咖啡">
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/coffee.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="./packages/core/main.min.css">
+    <link rel="stylesheet" href="./packages/daygrid/main.min.css">
+    <link rel="stylesheet" href="./packages/bootstrap/main.min.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">
+                <img src="./img/coffee.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                東山咖啡
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">
+                            <i class="fas fa-home"></i>  首頁
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./land.html">
+                            <i class="fas fa-tree"></i>  景點介紹
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./shop.html">
+                            <i class="fas fa-gift"></i>  商品介紹
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="page">
+        <div class="container-fluid" id="loading">
+            <div class="row h-100">
+                <div class="col-12 text-center align-self-center">
+                    <img src="./img/loading-coffee.svg" alt="" width="300" height="300">
+                    <p class="text-white">載入中...</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="content" style="margin-top: 70px; margin-bottom: 64px;">
+            <div class="row">
+                <div class="col-12 text-center text-white rubberBand wow my-2">
+                    <h1>景點介紹</h1>
+                </div>
+                <hr class="hr-white">
+                <div class="col-12">
+                    <table class="table table-hover table-light table-rwd my-2 rounded" id="site">
+                        <thead class="thead-dark rounded tr-hide">
+                            <tr>
+                                <th>名稱</th>
+                                <th>開始時間</th>
+                                <th>地點</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <!-- <?php
+                            FOR($I=0...){
+                                echo tr
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                /tr
+                            }
+                        ?> -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-12 bg-white">
+                    <div id="calendar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-primary" id="footer">
+        <div class="row justify-content-center">
+            <div class="col-12 text-white text-center">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fab fa-facebook-f"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#"><i class="fab fa-instagram"></i></a>
+                    </li>
+                </ul>
+                &copy;<script>let d = new Date; document.write(d.getFullYear());</script>泰山網頁設計班
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="" class="w-100 modal-img">
+                    <br><br>
+                    <h6><i class="fas fa-map-marker-alt text-success"></i>&nbsp;&nbsp;地址：<span class="modal-addr"></span></h6>
+                    <h6><i class="fas fa-phone-alt text-success"></i>&nbsp;電話：<span class="modal-tel"></span></h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/wow.min.js"></script>
+    <script src="./js/jquery.dataTables.min.js"></script>
+    <script src="./js/dataTables.bootstrap4.min.js"></script>
+    <script src="./packages/core/main.min.js"></script>
+    <script src="./packages/daygrid/main.min.js"></script>
+    <script src="./packages/bootstrap/main.min.js"></script>
+    <script src="./packages/core/locales-all.min.js"></script>
+    <script>
+        $(document).on("readystatechange", function(){
+            if(document.readyState == "complete"){
+                $("#loading").fadeOut(2000, function(){
+                    $("#content").fadeIn(1000);
+                    $("#footer").fadeIn(1000);
+
+                    new WOW().init();
+                    
+                });
+            }
+        })
+
+        let sitetable = $("#site").DataTable({
+            "language": {
+                "url": "./datatables-chinese-traditional.json"
+            },
+        });
+
+        $.ajax({
+            url: "https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=17",
+            type: "GET",
+            dataType: "json",
+            success: function(r){
+                // 先建立一個空的陣列放活動
+                let events = [];
+                for(let i=0;i<r.length;i++){
+                    // datatable
+                    let rowdata = [r[i].title, r[i].showInfo[0].time, r[i].showInfo[0].locationName];
+                    sitetable.row.add(rowdata).draw().node();
+
+                    // 因為開始日期的格式跟月曆不符，所以把斜線取代為-
+                    let start = r[i].startDate.replace("/", "-").replace("/", "-");
+
+                    // 加進陣列裡
+                    events.push({
+                        title: r[i].title,
+                        start: start,
+                        url: r[i].webSales
+                    });
+                }
+
+                // 跑完迴圈，建立月曆
+                let calendarEl = document.getElementById("calendar");
+                let calendar = new FullCalendar.Calendar(calendarEl, {
+                    locale: "zh-tw",
+                    plugins: [ "dayGrid", "bootstrap" ],
+                    themeSystem: "bootstrap",
+                    events:events
+                });
+
+                // 等待loading畫面fadeout之後才render避免出現空白月曆
+                setTimeout(function(){
+                    calendar.render();
+                }, 2000);
+            }
+        })
+
+        $(".btn-more").on("click", function(){
+            let title = $(this).parents("tr").find("td").eq(0).text();
+            $("#modal .modal-title").text(title);
+
+            let addr = $(this).parents("tr").find("td").eq(1).text();
+            $("#modal .modal-addr").text(addr);
+
+            let tel = $(this).parents("tr").find("td").eq(2).text();
+            $("#modal .modal-tel").text(tel);
+            
+            let img = $(this).attr("data-img");
+            $("#modal .modal-img").attr("src", "./img/"+img);
+
+            $("#modal").modal("show");
+        })
+    </script>
+</body>
+
+</html>
